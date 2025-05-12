@@ -60,13 +60,14 @@
 											target="_blank">Promotion</a></li>
 									<li><a href="https://dy980908.github.io/Video_umella/" class="button"
 											target="_blank">Video</a></li>
-									<li><a href="https://dy980908.github.io/Ebook_umella/" class="button" target="_blank">E-book</a></li>
+									<li><a href="https://dy980908.github.io/Ebook_umella/" class="button"
+											target="_blank">E-book</a></li>
 								</ul>
 							</div>
 						</article>
 						<article>
 							<div class="img_box"><img src="./assets/images/project2.png" alt="" />
-							<div class="overlay">
+								<div class="overlay">
 									<p>여행을 도와주는 부울경 감성 웹사이트</p>
 								</div>
 							</div>
@@ -92,8 +93,10 @@
 						<div class="posts2">
 							<div class="posts2">
 								<article>
-									<a href="#" class="image_popup" data-popup="./assets/images/popup1.png">
-										<div class="img_box2"><img src="./assets/images/art1.png" alt="" /></div>
+									<a href="#" class="image_popup">
+										<div class="img_box2">
+											<img src="./assets/images/art1.png" alt="" />
+										</div>
 										<h3>길따라남쪽 길따라맛따라</h3>
 										<p>SNS EVENT</p>
 									</a>
@@ -117,7 +120,7 @@
 							</div>
 						</div>
 					</div>
-						<!-- Artwork e-->
+					<!-- Artwork e-->
 				</section>
 				<!-- portfolio e 2355-->
 				<section id="experience_box">
@@ -338,11 +341,19 @@
 		</div>
 	</div>
 
-	<div id="popup-overlay" style="display: none;">
-		<img id="popup-img" src="" alt="popup image" />
+	<div id="popup-overlay" style="display:none;">
+		<div id="popup-container">
+			<span id="popup-close">&times;</span>
+			<img id="popup-img" src="" alt="popup" />
+			<button id="popup-prev"></button>
+			<button id="popup-next"></button>
+	</div>
+
+
 	</div>
 	<!-- popup e -->
-	<!-- Scripts -->
+
+
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/browser.min.js"></script>
 	<script src="assets/js/breakpoints.min.js"></script>
@@ -351,20 +362,53 @@
 	<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 	<script>
 		document.addEventListener('DOMContentLoaded', function () {
-			const popupLink = document.querySelector('.image_popup');
+			const popupLinks = document.querySelectorAll('.image_popup');
 			const popupOverlay = document.getElementById('popup-overlay');
 			const popupImg = document.getElementById('popup-img');
+			const popupClose = document.getElementById('popup-close');
+			const popupNext = document.getElementById('popup-next');
+			const popupPrev = document.getElementById('popup-prev');
 
-			popupLink.addEventListener('click', function (e) {
-				e.preventDefault();
-				const popupSrc = this.dataset.popup;
-				popupImg.src = popupSrc;
-				popupOverlay.style.display = 'flex';
+			const images = [
+				'./assets/images/popup1.png',
+				'./assets/images/popup2.png'
+			];
+			let currentIndex = 0;
+
+			function updateButtons() {
+				popupPrev.style.display = currentIndex === 0 ? 'none' : 'block';
+				popupNext.style.display = currentIndex === images.length - 1 ? 'none' : 'block';
+			}
+
+			popupLinks.forEach(link => {
+				link.addEventListener('click', function (e) {
+					e.preventDefault();
+					currentIndex = 0;
+					popupImg.src = images[currentIndex];
+					popupOverlay.style.display = 'flex';
+					updateButtons();
+				});
 			});
-
-			popupImg.addEventListener('click', function () {
+			popupClose.addEventListener('click', function () {
+				console.log('X clicked');
 				popupOverlay.style.display = 'none';
 				popupImg.src = '';
+			});
+
+			popupNext.addEventListener('click', function () {
+				if (currentIndex < images.length - 1) {
+					currentIndex++;
+					popupImg.src = images[currentIndex];
+					updateButtons();
+				}
+			});
+
+			popupPrev.addEventListener('click', function () {
+				if (currentIndex > 0) {
+					currentIndex--;
+					popupImg.src = images[currentIndex];
+					updateButtons();
+				}
 			});
 
 			document.addEventListener('keydown', function (e) {
