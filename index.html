@@ -60,7 +60,7 @@
 											target="_blank">Promotion</a></li>
 									<li><a href="https://dy980908.github.io/Video_umella/" class="button"
 											target="_blank">Video</a></li>
-									<li><a href="https://dy980908.github.io/Ebook_umella/e_book/index.html" class="button"
+									<li><a href="https://dy980908.github.io/Ebook_umella/e_book/" class="button"
 											target="_blank">E-book</a></li>
 								</ul>
 							</div>
@@ -81,6 +81,7 @@
 											target="_blank">Web Site</a></li>
 									<li><a href="https://dy980908.github.io/Web_Guide_gilddara/" class="button"
 											target="_blank">Web Guide</a></li>
+									<li><a href="#" class="button popup-trigger">SNS EVENT</a></li>
 								</ul>
 							</div>
 						</article>
@@ -93,20 +94,20 @@
 						<div class="posts2">
 							<div class="posts2">
 								<article>
-									<a href="#" class="image_popup">
+									<a href="https://dy980908.github.io/artwork1/" class="image_popup"target="_blank">
 										<div class="img_box2">
 											<img src="./assets/images/art1.png" alt="" />
 										</div>
-										<h3>길따라남쪽 길따라맛따라</h3>
-										<p>SNS EVENT</p>
+										<h3>essenherb</h3>
+										<p>essenherb브랜드 티트리데일리워시 상세페이지입니다</p>
 									</a>
 								</article>
 
 								<article>
 									<a href="./page/video.html" class="image" target="_blank">
 										<div class="img_box2"><img src="./assets/images/pic10.jpg" alt="" /></div>
-										<h3>에센허브</h3>
-										<p>티트리데일리워시 상세페이지</p>
+										<h3>브랜드이름</h3>
+										<p>VIDEO</p>
 									</a>
 								</article>
 
@@ -268,7 +269,7 @@
 		<!-- main e -->
 		<div id="sidebar">
 			<div class="inner">
-				<a class="menu_logo" href="./index.html"><img src="./assets/images/menu_top.png" alt=""></a>
+				<a class="menu_logo" href="https://dy980908.github.io/portfolio/"><img src="./assets/images/menu_top.png" alt=""></a>
 				<section id="contactme_box">
 					<header class="major">
 						<h2>Contact Me</h2>
@@ -362,62 +363,57 @@
 	<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 	<script>
 		document.addEventListener('DOMContentLoaded', function () {
-			const popupLinks = document.querySelectorAll('.image_popup');
-			const popupOverlay = document.getElementById('popup-overlay');
-			const popupImg = document.getElementById('popup-img');
-			const popupClose = document.getElementById('popup-close');
-			const popupNext = document.getElementById('popup-next');
-			const popupPrev = document.getElementById('popup-prev');
+	const popupBtn = document.querySelector('.popup-trigger'); // 버튼 하나만
+	const popupOverlay = document.getElementById('popup-overlay');
+	const popupImg = document.getElementById('popup-img');
+	const popupClose = document.getElementById('popup-close');
+	const popupNext = document.getElementById('popup-next');
+	const popupPrev = document.getElementById('popup-prev');
 
-			const images = [
-				'./assets/images/popup1.png',
-				'./assets/images/popup2.png'
-			];
-			let currentIndex = 0;
+	const images = [
+		'./assets/images/popup1.png',
+		'./assets/images/popup2.png'
+	];
+	let currentIndex = 0;
 
-			function updateButtons() {
-				popupPrev.style.display = currentIndex === 0 ? 'none' : 'block';
-				popupNext.style.display = currentIndex === images.length - 1 ? 'none' : 'block';
-			}
+	function updateButtons() {
+		popupPrev.style.display = currentIndex === 0 ? 'none' : 'block';
+		popupNext.style.display = currentIndex === images.length - 1 ? 'none' : 'block';
+	}
+	popupBtn.addEventListener('click', function (e) {
+		e.preventDefault();
+		currentIndex = 0;
+		popupImg.src = images[currentIndex];
+		popupOverlay.style.display = 'flex';
+		updateButtons();
+	});
+	popupClose.addEventListener('click', function () {
+		popupOverlay.style.display = 'none';
+		popupImg.src = '';
+	});
+	popupNext.addEventListener('click', function () {
+		if (currentIndex < images.length - 1) {
+			currentIndex++;
+			popupImg.src = images[currentIndex];
+			updateButtons();
+		}
+	});
+	popupPrev.addEventListener('click', function () {
+		if (currentIndex > 0) {
+			currentIndex--;
+			popupImg.src = images[currentIndex];
+			updateButtons();
+		}
+	});
 
-			popupLinks.forEach(link => {
-				link.addEventListener('click', function (e) {
-					e.preventDefault();
-					currentIndex = 0;
-					popupImg.src = images[currentIndex];
-					popupOverlay.style.display = 'flex';
-					updateButtons();
-				});
-			});
-			popupClose.addEventListener('click', function () {
-				console.log('X clicked');
-				popupOverlay.style.display = 'none';
-				popupImg.src = '';
-			});
-
-			popupNext.addEventListener('click', function () {
-				if (currentIndex < images.length - 1) {
-					currentIndex++;
-					popupImg.src = images[currentIndex];
-					updateButtons();
-				}
-			});
-
-			popupPrev.addEventListener('click', function () {
-				if (currentIndex > 0) {
-					currentIndex--;
-					popupImg.src = images[currentIndex];
-					updateButtons();
-				}
-			});
-
-			document.addEventListener('keydown', function (e) {
-				if (e.key === 'Escape') {
-					popupOverlay.style.display = 'none';
-					popupImg.src = '';
-				}
-			});
-		});
+	// ESC 키로 닫기
+	document.addEventListener('keydown', function (e) {
+		if (e.key === 'Escape') {
+			popupOverlay.style.display = 'none';
+			popupImg.src = '';
+		}
+	});
+});
 	</script>
 	<!-- popup e -->
 	<script>
