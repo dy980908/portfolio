@@ -2918,7 +2918,7 @@ input[type="submit"].disabled,input[type="submit"]:disabled,input[type="reset"].
   z-index: 1;
 }
 .img_box2:hover img {
-    transform: scale(1.5);
+    transform: scale(1.07);
   opacity: 0.7;
   transition-delay: 0s;
 }
@@ -2931,7 +2931,8 @@ a:hover h3 {
   /* margin: 10px 0 0 -13px; */
 }
 .posts2 p{
-   margin-top: 10px;
+   margin-top: 7px;
+   color: #666;
   /* margin: 10px 0 0 -13px; */
 }
 
@@ -2969,9 +2970,6 @@ a:hover h3 {
     margin-top: 40px;
     /* margin-left: 7%; */
   }
-  /* .posts2 h3,  .posts2 p {
-    margin-left: 7%; 
-  } */
 }
 /* poster2 e */
 #popup-overlay {
@@ -2986,7 +2984,6 @@ a:hover h3 {
   align-items: center;
   z-index: 9999;
 }
-
 #popup-container {
   position: relative;
   padding: 20px;
