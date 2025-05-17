@@ -9,6 +9,7 @@
   font-style: normal;
   cursor: url(../images/mouse.png) 0 0,auto;
   z-index: 1;
+  
 }
 @font-face {
     font-family: 'Pretendard-Regular';
@@ -2258,14 +2259,11 @@ input[type="submit"].disabled,input[type="submit"]:disabled,input[type="reset"].
   padding: 0 !important;
   overflow: hidden;
 }
-
 .video-banner {
   position: relative;
   width: 100%;
   max-width: 100%;
-  aspect-ratio: 1570 / 712; /* 비율 유지용 */
 }
-
 .video-banner video {
   width: 100%;
   height: 100%;
@@ -2275,6 +2273,26 @@ input[type="submit"].disabled,input[type="submit"]:disabled,input[type="reset"].
   #banner {
     flex-direction: column-reverse;
    }
+}
+@media screen and (max-width: 1920px) {
+#banner {
+  position: relative;
+  width: 100%;
+  height: auto;
+  padding: 0 !important;
+  overflow: hidden;
+}
+.video-banner {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 1570 / 712;
+}
+.video-banner video {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
 }
 @media screen and (max-width: 1400px) {
   #banner {
