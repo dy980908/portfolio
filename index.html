@@ -94,12 +94,12 @@
 						<div class="posts2">
 							<div class="posts2">
 								<article>
-									<a href="https://dy980908.github.io/artwork1/" class="image_popup"target="_blank">
+									<a href="https://dy980908.github.io/artwork1/" class="image_popup" target="_blank">
 										<div class="img_box2">
 											<img src="./assets/images/art1.png" alt="" />
 										</div>
 										<h3>essenherb</h3>
-										<p>essenherb브랜드 티트리데일리워시 상세페이지입니다</p>
+										<p>essenherb브랜드 티트리데일리워시 상세페이지입니다.</p>
 									</a>
 								</article>
 
@@ -251,25 +251,33 @@
 									<p>+82 10 9808 5322</p>
 								</a></li>
 							<li><a href="javascript:return false;">
-									<div><img src="./assets/images/Contact_icon3.png" alt=""></div>
-									<h2>Adress</h2>
-									<p>부산광역시 중구 대청로 121- 1</p>
+									<a href="https://www.instagram.com/portfolio.dy/" target="_blank">
+										<div>
+											<img src="./assets/images/Contact_icon3.png" alt="">
+										</div>
+									</a>
+									<h2>Instagram</h2>
+									<a href="https://www.instagram.com/portfolio.dy/" target="_blank">
+										<p>@portfolio.dy</p>
+									</a>
+
 								</a></li>
 						</ul>
 					</div>
 				</section>
-				<!-- Contact e 2929 -->
+				<!-- Contact e 3465 -->
 			</div>
 			<footer id="footer">
 				<a class="copyright" href="https://dy980908.github.io/portfolio/">© 2025 Kim Dayeon. All Rights
 					Reserved.</a>
 			</footer>
-			<!-- footer e 2996 -->
+			<!-- footer e 3566 -->
 		</div>
-		<!-- main e -->
+		<!-- main e 3611 -->
 		<div id="sidebar">
 			<div class="inner">
-				<a class="menu_logo" href="https://dy980908.github.io/portfolio/"><img src="./assets/images/menu_top.png" alt=""></a>
+				<a class="menu_logo" href="https://dy980908.github.io/portfolio/"><img
+						src="./assets/images/menu_top.png" alt=""></a>
 				<section id="contactme_box">
 					<header class="major">
 						<h2>Contact Me</h2>
@@ -298,6 +306,10 @@
 						<li><a href="javascript:return false;">
 								<img src="./assets/images/menu_icon5.png" alt="">
 								+82 10 9808 5322</a>
+						</li>
+						<li><a href="https://www.instagram.com/portfolio.dy/">
+								<img src="./assets/images/menu_icon6.png" alt="">
+								@portfolio.dy</a>
 						</li>
 					</ul>
 				</section>
@@ -340,6 +352,7 @@
 				<!-- skills e 3406 -->
 			</div>
 		</div>
+		<!-- 3660 -->
 	</div>
 
 	<div id="popup-overlay" style="display:none;">
@@ -348,10 +361,9 @@
 			<img id="popup-img" src="" alt="popup" />
 			<button id="popup-prev"></button>
 			<button id="popup-next"></button>
+		</div>
 	</div>
-
-
-	</div>
+	
 	<!-- popup e -->
 
 
@@ -363,57 +375,57 @@
 	<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 	<script>
 		document.addEventListener('DOMContentLoaded', function () {
-	const popupBtn = document.querySelector('.popup-trigger'); // 버튼 하나만
-	const popupOverlay = document.getElementById('popup-overlay');
-	const popupImg = document.getElementById('popup-img');
-	const popupClose = document.getElementById('popup-close');
-	const popupNext = document.getElementById('popup-next');
-	const popupPrev = document.getElementById('popup-prev');
+			const popupBtn = document.querySelector('.popup-trigger'); // 버튼 하나만
+			const popupOverlay = document.getElementById('popup-overlay');
+			const popupImg = document.getElementById('popup-img');
+			const popupClose = document.getElementById('popup-close');
+			const popupNext = document.getElementById('popup-next');
+			const popupPrev = document.getElementById('popup-prev');
 
-	const images = [
-		'./assets/images/popup1.png',
-		'./assets/images/popup2.png'
-	];
-	let currentIndex = 0;
+			const images = [
+				'./assets/images/popup1.png',
+				'./assets/images/popup2.png'
+			];
+			let currentIndex = 0;
 
-	function updateButtons() {
-		popupPrev.style.display = currentIndex === 0 ? 'none' : 'block';
-		popupNext.style.display = currentIndex === images.length - 1 ? 'none' : 'block';
-	}
-	popupBtn.addEventListener('click', function (e) {
-		e.preventDefault();
-		currentIndex = 0;
-		popupImg.src = images[currentIndex];
-		popupOverlay.style.display = 'flex';
-		updateButtons();
-	});
-	popupClose.addEventListener('click', function () {
-		popupOverlay.style.display = 'none';
-		popupImg.src = '';
-	});
-	popupNext.addEventListener('click', function () {
-		if (currentIndex < images.length - 1) {
-			currentIndex++;
-			popupImg.src = images[currentIndex];
-			updateButtons();
-		}
-	});
-	popupPrev.addEventListener('click', function () {
-		if (currentIndex > 0) {
-			currentIndex--;
-			popupImg.src = images[currentIndex];
-			updateButtons();
-		}
-	});
+			function updateButtons() {
+				popupPrev.style.display = currentIndex === 0 ? 'none' : 'block';
+				popupNext.style.display = currentIndex === images.length - 1 ? 'none' : 'block';
+			}
+			popupBtn.addEventListener('click', function (e) {
+				e.preventDefault();
+				currentIndex = 0;
+				popupImg.src = images[currentIndex];
+				popupOverlay.style.display = 'flex';
+				updateButtons();
+			});
+			popupClose.addEventListener('click', function () {
+				popupOverlay.style.display = 'none';
+				popupImg.src = '';
+			});
+			popupNext.addEventListener('click', function () {
+				if (currentIndex < images.length - 1) {
+					currentIndex++;
+					popupImg.src = images[currentIndex];
+					updateButtons();
+				}
+			});
+			popupPrev.addEventListener('click', function () {
+				if (currentIndex > 0) {
+					currentIndex--;
+					popupImg.src = images[currentIndex];
+					updateButtons();
+				}
+			});
 
-	// ESC 키로 닫기
-	document.addEventListener('keydown', function (e) {
-		if (e.key === 'Escape') {
-			popupOverlay.style.display = 'none';
-			popupImg.src = '';
-		}
-	});
-});
+			// ESC 키로 닫기
+			document.addEventListener('keydown', function (e) {
+				if (e.key === 'Escape') {
+					popupOverlay.style.display = 'none';
+					popupImg.src = '';
+				}
+			});
+		});
 	</script>
 	<!-- popup e -->
 	<script>
@@ -493,6 +505,32 @@
 		});
 	</script>
 	<!-- menu e -->
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			const toggleBtn = document.querySelector('#sidebar .toggle');
+			let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+			function handleScroll() {
+				const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+				if (window.innerWidth <= 1280) {
+					if (currentScroll < lastScrollTop) {
+						toggleBtn.classList.add('visible');
+					} else {
+						toggleBtn.classList.remove('visible');
+					}
+				} else {
+					toggleBtn.classList.remove('visible');
+				}
+
+				lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+			}
+
+			window.addEventListener('scroll', handleScroll);
+			window.addEventListener('resize', handleScroll);
+		});
+	</script>
+	<!-- 햄버거 스크롤 사라짐 -->
 </body>
 
 </html>
